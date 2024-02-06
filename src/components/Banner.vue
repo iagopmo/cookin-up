@@ -1,7 +1,7 @@
 <template>    
     <header class="banner">
         <div class="apresentacao">
-            <img src="../assets/imagens-main/images/logo.svg" alt="" class="logo">
+            <img src="../assets/images/logo.svg" alt="" class="logo">
             <p class="cabecalho-lg frase-cabecalho">
             <span class="texto-verde">Um banquete de ideias para </span>
             despertar o chefe que há em você!
@@ -10,7 +10,7 @@
             Explore novas receitas todos os dias com os ingredientes que estão ao seu alcance!
             </p>
         </div>
-        <img src="../assets/imagens-main/images/foto-banner.png" alt="" class="goto-banner">  
+        <img src="../assets/images/foto-banner.png" alt="" class="goto-banner">  
     </header>
 </template>
 
