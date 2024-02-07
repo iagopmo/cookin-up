@@ -20,13 +20,17 @@
 
 <script lang="ts">
 import { obterCategorias } from '@/http/index';
+import type ICategoria from '@/interfaces/ICategorias';
 
 export default {
   data() {
     return {
-      categorias: obterCategorias()
+      categorias: [] as ICategoria[]
     }
-  } 
+  },
+  async created() { //metodo de cicli de vida - só executado depois das propriedades do data() serem definidas
+    this.categorias = await obterCategorias();
+  }
 }
 </script>
 
