@@ -15,16 +15,21 @@
               Sua lista está vazia, selecione ingredientes para iniciar.
             </p>
         </section>
+
+        <SelecionarIngredientes> </SelecionarIngredientes>
     </main>
 </template>
 
 <script lang="ts">
+import SelecionarIngredientes from './SelecionarIngredientes.vue';
+
 export default {
     data() { //forma de disponibilizar informações do javascript no template
         return {
             ingredientes: ['Alho', 'Manteiga', 'agua']
         }
-    }
+    },
+    components : { SelecionarIngredientes }
 }
 </script>
 
