@@ -28,7 +28,7 @@ export default {
       categorias: [] as ICategoria[]
     }
   },
-  async created() { //metodo de cicli de vida - só executado depois das propriedades do data() serem definidas
+  async created() { //metodo de ciclo de vida - só executado depois das propriedades do data() serem definidas
     this.categorias = await obterCategorias();
   }
 }

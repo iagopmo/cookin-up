@@ -1,5 +1,5 @@
 <template>
-    <main class="subtitulo-lg">
+    <main class="conteudo-principal">
         <section>
             <span class="subtitulo-lg sua-lista-texto">
                 Sua Lista:
@@ -16,7 +16,7 @@
             </p>
         </section>
 
-        <SelecionarIngredientes> </SelecionarIngredientes>
+        <SelecionarIngredientes />
     </main>
 </template>
 
