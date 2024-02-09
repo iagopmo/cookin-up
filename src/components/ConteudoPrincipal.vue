@@ -6,7 +6,7 @@
             </span>
             <ul v-if="ingredientes.length" class="ingredientes-sua-lista">
                 <li v-for="ingrediente in ingredientes" v-bind:key="ingrediente" class="ingrediente"> 
-                    {{ ingrediente }}
+                    <Tag :texto="ingrediente" />
                 </li>
             </ul>
 
@@ -22,6 +22,7 @@
 
 <script lang="ts">
 import SelecionarIngredientes from './SelecionarIngredientes.vue';
+import Tag from './Tag.vue';
 
 export default {
     data() { //forma de disponibilizar informações do javascript no template
@@ -29,7 +30,7 @@ export default {
             ingredientes: ['Alho', 'Manteiga', 'agua']
         }
     },
-    components : { SelecionarIngredientes }
+    components : { SelecionarIngredientes, Tag }
 }
 </script>
 
@@ -58,18 +59,6 @@ export default {
     justify-content: center;
     gap: 1rem 1.5rem;
     flex-wrap: wrap;
-  }
-  
-  .ingrediente {
-    display: inline-block;
-    border-radius: 0.5rem;
-    min-width: 4.25rem;
-    padding: 0.5rem;
-    text-align: center;
-      transition: 0.2s;
-      color: var(--creme, #FFFAF3);
-    background: var(--coral, #F0633C);
-    font-weight: 700;
   }
   
   .lista-vazia {

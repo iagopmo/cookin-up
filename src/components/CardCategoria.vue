@@ -7,7 +7,7 @@
 
         <ul class="categoria__ingredientes">
             <li v-for="ingrediente in categoria.ingredientes" :key="ingrediente">
-                {{ ingrediente }}
+                <Tag :texto="ingrediente"/>
             </li>
         </ul>
     </article>
@@ -17,11 +17,14 @@
 // import type ICategoria from '@/interfaces/ICategorias';
 import type ICategoria from '../interfaces/ICategorias';
 import type { PropType } from 'vue';
+import Tag from './Tag.vue';
 
 export default {
     props: { //qndo quer passar propriedades de um componente para outro
-        categoria: { type: Object as PropType<ICategoria>, required: true} // <ICategoria> -> generics , informa tipo mais especifico da categoria
-    }
+        // <ICategoria> -> generics , informa tipo mais especifico da categoria - required true, essa propriedade sempre deve ser passada        
+        categoria: { type: Object as PropType<ICategoria>, required: true} 
+    },
+    components: { Tag }
 }
 </script>
 
