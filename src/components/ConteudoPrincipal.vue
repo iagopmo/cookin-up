@@ -1,36 +1,23 @@
 <template>
     <main class="conteudo-principal">
-        <section>
-            <span class="subtitulo-lg sua-lista-texto">
-                Sua Lista:
-            </span>
-            <ul v-if="ingredientes.length" class="ingredientes-sua-lista">
-                <li v-for="ingrediente in ingredientes" v-bind:key="ingrediente" class="ingrediente"> 
-                    <Tag :texto="ingrediente" ativa />
-                </li>
-            </ul>
+      <SuaLista :ingredientes="ingredientes"/>
+      
+      <SelecionarIngredientes />
 
-            <p v-else class="paragrafo lista-vazia">
-              <img src="../assets/images/icones/lista-vazia.svg" alt="ícone lista vazia">
-              Sua lista está vazia, selecione ingredientes para iniciar.
-            </p>
-        </section>
-
-        <SelecionarIngredientes />
     </main>
 </template>
 
 <script lang="ts">
 import SelecionarIngredientes from './SelecionarIngredientes.vue';
-import Tag from './Tag.vue';
+import SuaLista from './SuaLista.vue';
 
 export default {
     data() { //forma de disponibilizar informações do javascript no template
         return {
-            ingredientes: ['Alho', 'Manteiga', 'agua']
+            ingredientes: ['Alho', 'Manteiga', 'Água']
         }
     },
-    components : { SelecionarIngredientes, Tag }
+    components : { SelecionarIngredientes, SuaLista }
 }
 </script>
 
