@@ -8,7 +8,10 @@
 
     <ul class="categorias">
       <li v-for="categoria in categorias" :key="categoria.nome">
-        <CardCategoria :categoria="categoria"/>
+        <CardCategoria 
+          :categoria="categoria"          
+          @adicionaringrediente="$emit('adicionarIngrediente', $event)"
+          />
       </li>
     </ul>
 
@@ -32,7 +35,8 @@ export default {
   async created() { //metodo de ciclo de vida - só executado depois das propriedades do data() serem definidas
     this.categorias = await obterCategorias();
   },
-  components: { CardCategoria }
+  components: { CardCategoria },
+  emits: ['adicionarIngrediente']
 }
 </script>
 

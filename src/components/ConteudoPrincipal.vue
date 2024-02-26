@@ -2,7 +2,9 @@
     <main class="conteudo-principal">
       <SuaLista :ingredientes="ingredientes"/>
       
-      <SelecionarIngredientes />
+      <SelecionarIngredientes                 
+        @adicionarIngrediente="adicionarIngrediente($event)"
+      />
 
     </main>
 </template>
@@ -14,10 +16,15 @@ import SuaLista from './SuaLista.vue';
 export default {
     data() { //forma de disponibilizar informações do javascript no template
         return {
-            ingredientes: ['Alho', 'Manteiga', 'Água']
+            ingredientes: [] as string[]
         }
     },
-    components : { SelecionarIngredientes, SuaLista }
+    components : { SelecionarIngredientes, SuaLista },
+    methods: {
+      adicionarIngrediente(ingrediente: string) {
+        this.ingredientes.push(ingrediente);
+      }
+    }
 }
 </script>
 

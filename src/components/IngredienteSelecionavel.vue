@@ -1,7 +1,7 @@
 <template>
     <button
         class="ingrediente"        
-        v-on:click="selecionado = !selecionado"
+        @click="aoClicar"
         :aria-pressed="selecionado"
     >
         <Tag :texto="ingrediente" :ativa="selecionado" />
@@ -23,7 +23,17 @@ export default {
         return {
             selecionado: false
         }
-    }
+    },
+    methods: {
+        aoClicar() {
+            this.selecionado = !this.selecionado;
+
+            if(this.selecionado) {
+                this.$emit('adicionarIngrediente', this.ingrediente);
+            }
+        }
+    },
+    emits: ['adicionarIngrediente']  //emits -> lista declarando eventos personalizados q o componente é capaz de emitir e ajuda a prevenir erros com o nome do evento personalizado
 }
 </script>
 
