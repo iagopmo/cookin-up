@@ -4,6 +4,7 @@
       
       <SelecionarIngredientes                 
         @adicionarIngrediente="adicionarIngrediente($event)"
+        @removerIngrediente="removerIngrediente($event)"
       />
 
     </main>
@@ -23,6 +24,10 @@ export default {
     methods: {
       adicionarIngrediente(ingrediente: string) {
         this.ingredientes.push(ingrediente);
+      },
+      removerIngrediente(ingrediente : string) {
+        let ingredientIndex = this.ingredientes.indexOf(ingrediente);
+        this.ingredientes.splice(ingredientIndex, 1);
       }
     }
 }

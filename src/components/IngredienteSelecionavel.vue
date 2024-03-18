@@ -30,10 +30,15 @@ export default {
 
             if(this.selecionado) {
                 this.$emit('adicionarIngrediente', this.ingrediente);
-            }
+            } else {
+                this.removerIngrediente();        
+            }            
+        },
+        removerIngrediente() {
+            this.$emit('removerIngrediente', this.ingrediente);
         }
     },
-    emits: ['adicionarIngrediente']  //emits -> lista declarando eventos personalizados q o componente é capaz de emitir e ajuda a prevenir erros com o nome do evento personalizado
+    emits: ['adicionarIngrediente', 'removerIngrediente']  //emits -> lista declarando eventos personalizados q o componente é capaz de emitir e ajuda a prevenir erros com o nome do evento personalizado
 }
 </script>
 

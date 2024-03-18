@@ -10,6 +10,7 @@
                 <IngredienteSelecionavel 
                   :ingrediente="ingrediente"                  
                   @adicionarIngrediente="$emit('adicionaringrediente', $event)"
+                  @removerIngrediente="$emit('removerIngrediente', $event)"
                 />
             </li>
         </ul>
@@ -30,7 +31,7 @@ export default {
         categoria: { type: Object as PropType<ICategoria>, required: true} 
     },
     components: { Tag, IngredienteSelecionavel },
-    emits: ['adicionaringrediente']
+    emits: ['adicionaringrediente', 'removerIngrediente']
 }
 </script>
 
