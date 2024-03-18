@@ -6,7 +6,6 @@
         @adicionarIngrediente="adicionarIngrediente($event)"
         @removerIngrediente="removerIngrediente($event)"
       />
-
     </main>
 </template>
 
@@ -28,6 +27,7 @@ export default {
       removerIngrediente(ingrediente : string) {
         let ingredientIndex = this.ingredientes.indexOf(ingrediente);
         this.ingredientes.splice(ingredientIndex, 1);
+        //ingredientes.value = ingredientes.value.filter(iLista => ingrediente !== iLista);
       }
     }
 }
