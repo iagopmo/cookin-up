@@ -2,24 +2,31 @@
     <main class="conteudo-principal">
       <SuaLista :ingredientes="ingredientes"/>
       
-      <SelecionarIngredientes                 
+      <SelecionarIngredientes v-if="conteudo === 'SelecionarIngredientes'"            
         @adicionarIngrediente="adicionarIngrediente($event)"
         @removerIngrediente="removerIngrediente($event)"
+        @buscarReceitas="navegar('MostrarReceitas')"
       />
+
+      <MostrarReceitas v-else-if="conteudo === 'MostrarReceitas'" />
     </main>
 </template>
 
 <script lang="ts">
 import SelecionarIngredientes from './SelecionarIngredientes.vue';
 import SuaLista from './SuaLista.vue';
+import MostrarReceitas from './MostrarReceitas.vue';
+
+type Pagina = 'SelecionarIngredientes' | 'MostrarReceitas';
 
 export default {
     data() { //forma de disponibilizar informações do javascript no template
         return {
-            ingredientes: [] as string[]
+            ingredientes: [] as string[],
+            conteudo: 'SelecionarIngredientes' as Pagina
         }
     },
-    components : { SelecionarIngredientes, SuaLista },
+    components : { SelecionarIngredientes, SuaLista, MostrarReceitas },
     methods: {
       adicionarIngrediente(ingrediente: string) {
         this.ingredientes.push(ingrediente);
@@ -28,6 +35,9 @@ export default {
         let ingredientIndex = this.ingredientes.indexOf(ingrediente);
         this.ingredientes.splice(ingredientIndex, 1);
         //ingredientes.value = ingredientes.value.filter(iLista => ingrediente !== iLista);
+      },
+      navegar(pagina : Pagina) {
+        this.conteudo = pagina
       }
     }
 }
